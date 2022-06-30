@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "types": [
-        "../printerManagerApi/types"
+        "../printer-manager-back/types"
       ]
     }
   }
