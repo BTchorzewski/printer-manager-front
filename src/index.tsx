@@ -1,15 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Layout} from "./layout/Layout";
+import {Dashboard} from "./pages/Dashboard/Dashboard";
+import {PrintersPage} from "./pages/Printers/PrintersPage";
+import {EditPrinterPage} from "./pages/Printer/EditPrinterPage";
+import {StorePage} from "./pages/Store/StorePage";
+import {SuppliesPage} from "./pages/Supplies/SuppliesPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout children={<Dashboard/>}></Layout>}/>
+        <Route path='printers' element={<Layout><PrintersPage/></Layout>}/>
+        <Route path='printer'>
+          <Route path='edit/:printerId' element={<Layout><EditPrinterPage/></Layout>}></Route>
+          <Route path='manage/:printerId' element={<Layout><EditPrinterPage/></Layout>}></Route>
+        </Route>
+        <Route path='store'>
+          <Route path='manage/:storeId' element={<Layout><StorePage/></Layout>}></Route>
+        </Route>
+        <Route path='supplies'>
+          <Route path='manage/:supplyId' element={<Layout><SuppliesPage/></Layout>}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
