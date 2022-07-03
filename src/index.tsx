@@ -18,6 +18,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout children={<Dashboard/>}></Layout>}/>
+        {/*@todo add pagination to printers page*/}
         <Route path='printers' element={<Layout><PrintersPage/></Layout>}/>
         <Route path='printer'>
           <Route path='edit/:printerId' element={<Layout><EditPrinterPage/></Layout>}></Route>
