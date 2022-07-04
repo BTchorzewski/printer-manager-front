@@ -9,6 +9,7 @@ import {PrintersPage} from "./pages/Printers/PrintersPage";
 import {EditPrinterPage} from "./pages/Printer/EditPrinterPage";
 import {StorePage} from "./pages/Store/StorePage";
 import {SuppliesPage} from "./pages/Supplies/SuppliesPage";
+import {NotFoundPage} from "./pages/error/NotFoundPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -30,6 +31,7 @@ root.render(
         <Route path='supplies'>
           <Route path='manage/:supplyId' element={<Layout><SuppliesPage/></Layout>}></Route>
         </Route>
+        <Route path='*' element={<NotFoundPage/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
