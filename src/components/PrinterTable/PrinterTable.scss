@@ -1,50 +1,32 @@
 .Table {
-  width: 60rem;
-  height: fit-content;
 
   &__row {
-    display: flex;
-    justify-content: space-between;
-    padding: .5rem 1rem;
-
-    &--bold {
-      display: initial;
-      font-weight: bolder;
-    }
+      &--bold {
+      }
   }
 
   &__data {
-
-    font-size: 1.6rem;
-    text-align: left;
-
   }
 
   &__head {
-
   }
 
   &__actions {
-    display: flex;
-    justify-content: space-between;
   }
 }
 
 .Button {
-  margin: .2rem;
-  padding: .3rem .5rem;
-  border: none;
-  border-radius: 5%;
+
 
   &--edit {
-    background-color: yellow;
+
   }
 
   &--manage {
-    background-color: greenyellow;
+
   }
 
   &--delete {
-    background-color: red;
+
   }
 }
