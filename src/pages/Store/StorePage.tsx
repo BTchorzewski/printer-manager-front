@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import './StorePage.scss';
 
-export const StorePage = () => {
+export function StorePage() {
   return (
     <h1>StorePage</h1>
-  )
+  );
 }

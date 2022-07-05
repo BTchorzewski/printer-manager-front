@@ -1,17 +1,18 @@
-import {Sidebar} from '../components/Sidebar/Sidebar';
-import './Layout.scss'
+import React from 'react';
+import { Sidebar } from '../components/Sidebar/Sidebar';
+import './Layout.scss';
 
 interface Props {
   children: React.ReactNode,
 }
 
-export const Layout = (props: Props) => {
+export function Layout({ children }: Props) {
   return (
-    <div className='Layout'>
-      <Sidebar/>
+    <div className="Layout">
+      <Sidebar />
       {
-        props.children
+        children
       }
     </div>
-  )
+  );
 }

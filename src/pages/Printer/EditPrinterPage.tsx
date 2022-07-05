@@ -1,51 +1,51 @@
-import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
-import './EditPrinterPage.scss'
-import {useParams} from "react-router-dom";
-import {Printer} from "types";
-import {PrinterModel} from '../../utils/utils'
+import React, {
+  ChangeEvent, FormEvent, useEffect, useState,
+} from 'react';
+import './EditPrinterPage.scss';
+import { useParams } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Printer } from 'types';
+import { PrinterModel } from '../../utils/utils';
 
-export const EditPrinterPage = () => {
-  const {printerId} = useParams()
-  const [printer, setPrinter] = useState<Printer | null>(null)
+export function EditPrinterPage() {
+  const { printerId } = useParams();
+  const [printer, setPrinter] = useState<Printer | null>(null);
   const models = Object.values(PrinterModel);
 
   useEffect(() => {
     (async () => {
       const respond = await fetch(`http://localhost:3001/api/printers/${printerId}`);
       const [result] = (await respond.json()).data;
-      console.log(result);
-      setPrinter(result)
-    })()
-  }, [])
+      setPrinter(result);
+    })();
+  }, []);
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    //@ts-ignore
-    setPrinter((prevPrinter) => {
-      return ({
-        ...prevPrinter,
-        [e.target.name]: e.target.value
-      });
-    })
-  }
+    // @ts-ignore
+    setPrinter((prevPrinter) => ({
+      ...prevPrinter,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const selectHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     // @ts-ignore
-    setPrinter(prevState => {
-      return {
-        ...prevState,
-        isMultifunctional: e.target.value !== PrinterModel.Xerox_VersaLink_C400 ? true : false,
-        model: e.target.value,
-      }
-    })
-  }
+    setPrinter((prevState) => ({
+      ...prevState,
+      isMultifunctional: e.target.value !== PrinterModel.Xerox_VersaLink_C400,
+      model: e.target.value,
+    }));
+  };
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const {name, model, isMultifunctional, location, area, ip} = printer as Printer;
+    const {
+      name, model, isMultifunctional, location, area, ip,
+    } = printer as Printer;
     const respond = await fetch(`http://localhost:3001/api/printers/${printerId}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name,
@@ -55,91 +55,97 @@ export const EditPrinterPage = () => {
         area,
         ip,
       }),
-    })
-  }
+    });
+  };
 
-  //@todo add respond error handler,
-  //@todo create component with respond error message
-  //@todo add css styles.
+  // @todo add respond error handler,
+  // @todo create component with respond error message
+  // @todo add css styles.
 
-
-  if (printer === null) return <p>waiting...</p>
+  if (printer === null) return <p>waiting...</p>;
   return (
     <form onSubmit={submitHandler}>
-      <label>
+      <label htmlFor="name">
         name:
         <input
-          type='text'
+          id="name"
+          type="text"
           value={printer.name}
-          name='name'
+          name="name"
           onChange={inputHandler}
         />
       </label>
-      <label>
+      <label htmlFor="ip">
         IP:
         <input
-          type='text'
+          id="ip"
+          type="text"
           value={printer.ip}
-          name='ip'
+          name="ip"
           onChange={inputHandler}
         />
       </label>
-      <label>
+      <label htmlFor="model">
         Model:
         <select
-          name='model'
+          id="model"
+          name="model"
           onChange={selectHandler}
         >
           {
-            models.map(model => {
-              return model === printer.model
-                ? <option selected value={model}>{model}</option>
-                : <option value={model}>{model}</option>;
-            })
+            models.map((model) => (model === printer.model
+              ? <option selected value={model}>{model}</option>
+              : <option value={model}>{model}</option>))
           }
         </select>
       </label>
 
       <div>
-        <label>
+        <label htmlFor="yesRadio">
           <input
-            type='radio'
+            id="yesRadio"
+            type="radio"
             value={1}
             checked={printer.isMultifunctional === true}
-            name='isMultifunctional'
+            name="isMultifunctional"
             disabled
-          /> Yes
+          />
+          Yes
         </label>
-        <label>
+        <label htmlFor="noRadio">
           <input
-            type='radio'
+            id="noRadio"
+            type="radio"
             value={0}
             checked={printer.isMultifunctional === false}
-            name='isMultifunctional'
+            name="isMultifunctional"
             disabled
-          /> No
+          />
+          No
         </label>
       </div>
 
-      <label>
+      <label htmlFor="area">
         Area:
         <input
-          type='text'
+          id="area"
+          type="text"
           value={printer.area}
-          name='area'
+          name="area"
           onChange={inputHandler}
         />
       </label>
-      <label>
+      <label htmlFor="location">
         Locations:
         <input
-          type='text'
+          id="location"
+          type="text"
           value={printer.location}
-          name='location'
+          name="location"
           onChange={inputHandler}
         />
       </label>
-      <button type='submit'>Update</button>
+      <button type="submit">Update</button>
     </form>
-  )
+  );
 }

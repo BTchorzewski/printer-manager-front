@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export const Dashboard = () => {
+export function Dashboard() {
   return (
     <h1>Dashboard</h1>
   );

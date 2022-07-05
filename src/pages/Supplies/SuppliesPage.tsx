@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import './SuppliesPage.scss';
 
-export const SuppliesPage = () => {
+export function SuppliesPage() {
   return (
     <h1>SuppliesPage</h1>
-  )
+  );
 }
