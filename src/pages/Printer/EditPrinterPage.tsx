@@ -4,7 +4,7 @@ import React, {
 import './EditPrinterPage.scss';
 import { useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Printer } from 'types';
+import { Printer } from 'src/types';
 import { PrinterModel } from '../../utils/utils';
 
 export function EditPrinterPage() {

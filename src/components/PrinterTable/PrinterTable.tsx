@@ -1,7 +1,7 @@
 import React from 'react';
 import './PrinterTable.scss';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Printer } from '../../../types';
+import { Printer } from '../../types';
 import { isMultifunctionYesNoLabel } from '../../utils/utils';
 import { EditPrinterButton } from '../Button/EditPrinterButton';
 import { ManagePrinterButton } from '../Button/ManagePrinterButton';

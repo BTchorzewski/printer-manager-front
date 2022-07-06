@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import './ManagePrinterPage.scss';
 
-export const ManagePrinterPage = () => {
+export function ManagePrinterPage() {
   return (
     <h1>ManagePrinterPage</h1>
-  )
+  );
 }
