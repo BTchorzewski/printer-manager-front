@@ -1,0 +1,12 @@
+.BoxCenter {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 1rem 1rem;
+  box-sizing: border-box;
+  overflow: scroll;
+  position: relative;
+}
