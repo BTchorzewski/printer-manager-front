@@ -1,8 +1,11 @@
 import React from 'react';
 import './PrinterTable.scss';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Printer } from 'types';
+import { Printer } from '../../../types';
 import { isMultifunctionYesNoLabel } from '../../utils/utils';
+import { EditPrinterButton } from '../Button/EditPrinterButton';
+import { ManagePrinterButton } from '../Button/ManagePrinterButton';
+import { DeletePrinterButton } from '../Button/DeletePrinterButton';
 
 interface Props {
   printers: Printer[];
@@ -11,16 +14,17 @@ interface Props {
 export function PrinterTable({ printers }: Props) {
   return (
     <table className="Table">
-      <tr className="Table__row">
-        <th className="Table__head">Name</th>
-        <th className="Table__head">IP</th>
-        <th className="Table__head">Model</th>
-        <th className="Table__head">isMultifunctional</th>
-        <th className="Table__head">Area</th>
-        <th className="Table__head">Location</th>
-        <th className="Table__head">Actions</th>
-      </tr>
-      {
+      <thead className="Table__head">
+        <th className="Table__head-item">Name</th>
+        <th className="Table__head-item">IP</th>
+        <th className="Table__head-item">Model</th>
+        <th className="Table__head-item">isMultifunctional</th>
+        <th className="Table__head-item">Area</th>
+        <th className="Table__head-item">Location</th>
+        <th className="Table__head-item">Actions</th>
+      </thead>
+      <tbody className="Table__body">
+        {
         printers.map((printer) => (
           <tr
             className="Table__row"
@@ -33,29 +37,15 @@ export function PrinterTable({ printers }: Props) {
             <td className="Table__data">{printer.area}</td>
             <td className="Table__data">{printer.location}</td>
             <td className="Table__actions">
-              <button
-                type="button"
-                className=" Button Button--edit"
-              >
-                Edit
-              </button>
-              <button
-                type="button"
-                className=" Button Button--manage"
-              >
-                Manage
-              </button>
-              <button
-                type="button"
-                className=" Button Button--delete"
-              >
-                Delete
-              </button>
+              <EditPrinterButton printerId={printer.id}>Edit</EditPrinterButton>
+              <ManagePrinterButton printerId={printer.id}>Manage</ManagePrinterButton>
+              <DeletePrinterButton printerId={printer.id}>Delete</DeletePrinterButton>
             </td>
 
           </tr>
         ))
       }
+      </tbody>
     </table>
   );
 }

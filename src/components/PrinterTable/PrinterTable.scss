@@ -1,14 +1,36 @@
 .Table {
-
+  table-layout: fixed;
+  max-height: 100%;
+  max-width: 70%;
+  border-collapse: collapse;
+  font-size: 1.4rem;
+  border: .5rem solid rgba(182, 182, 182, 0.09);
+  border-radius: 3%;
+  margin-top: 6rem;
   &__row {
+      margin-top: .5rem;
+      background-color: rgba(255, 255, 255, 0.45);
+      &:nth-child(odd) {
+       background-color: rgba(170, 213, 225, 0.93);
+      }
       &--bold {
       }
   }
 
   &__data {
+    padding: .6rem;
+    height: 1.6rem;
   }
 
   &__head {
+    background-color: rgba(117, 117, 117, 0.93);
+    &-item {
+      padding: 2rem;
+      color: #ffffff
+    }
+  }
+  &__body {
+    margin-top: .8rem;
   }
 
   &__actions {
