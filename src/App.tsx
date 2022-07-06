@@ -6,7 +6,6 @@ import { Dashboard } from './pages/Dashboard/Dashboard';
 import { PrintersPage } from './pages/Printers/PrintersPage';
 import { ManagePrinterPage } from './pages/Printer/ManagePrinterPage';
 import { EditPrinterPage } from './pages/Printer/EditPrinterPage';
-import { AddPrinterPage } from './pages/Printer/AddPrinterPage';
 import { StorePage } from './pages/Store/StorePage';
 import { SuppliesPage } from './pages/Supplies/SuppliesPage';
 import { NotFoundPage } from './pages/error/NotFoundPage';
@@ -28,7 +27,6 @@ function App() {
             <Route path="printer">
               <Route path="manage/:printerId" element={<Layout><ManagePrinterPage /></Layout>} />
               <Route path="edit/:printerId" element={<Layout><EditPrinterPage /></Layout>} />
-              <Route path="add" element={<Layout><AddPrinterPage /></Layout>} />
             </Route>
             <Route path="store" element={<Layout><StorePage /></Layout>}>
               <Route path="manage/:storeId" element={<Layout><StorePage /></Layout>} />

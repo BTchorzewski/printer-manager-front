@@ -1,3 +1,5 @@
+import { AddPrinterRequest } from '../types';
+
 export const isMultifunctionYesNoLabel = (param: boolean): string => (param ? 'Yes' : 'No');
 
 export enum PrinterModel {
