@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2021": true
@@ -42,13 +43,20 @@
       }
     ],
     "import/no-extraneous-dependencies": [
-      "error",
+      "warn",
       {
-        "devDependencies": true
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
       }
     ],
     "import/prefer-default-export": "off",
     "no-unused-vars": "warn",
-    "no-shadow": "warn"
+    "no-shadow": "warn",
+    "react/button-has-type": ["warn", {
+      "button": true,
+      "submit": true,
+      "reset": true
+    }]
   }
 }
