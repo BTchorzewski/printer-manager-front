@@ -1,16 +1,45 @@
 .Sidebar {
   height: 100vh;
-  width: 300px;
-  background-color: #61dafb;
-  &__header {}
-  &__title {}
-  &__navigation {}
-  &__list {}
-  &__item {}
+  width: 400px;
+  background-color: #00142c;
+  &__header {
+  padding:0 1rem;
+    border-bottom: .2rem solid white;
+  }
+  &__title {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: 2.8rem;
+
+  }
+  &__navigation {
+    font-size: 2.1rem;
+
+  }
+  &__list {
+    list-style: none;
+    text-align: left;
+  }
+  &__item {
+    margin-top: .9rem;
+  }
+  &__icon {
+    padding-right: .5rem;
+  }
   &__link {
-    &:link {}
-    &:visited {}
-    &:hover {}
-    &:active {}
+    text-decoration: none;
+    &:link {
+      color: #3370a1
+    }
+    &:visited {
+      color: #3370a1
+    }
+    &:hover {
+      color: #ffffff;
+
+    }
+    &:active {
+      color: #3370a1
+    }
   }
 }
