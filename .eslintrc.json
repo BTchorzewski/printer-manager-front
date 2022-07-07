@@ -57,6 +57,7 @@
       "button": true,
       "submit": true,
       "reset": true
-    }]
+    }],
+    "react/jsx-one-expression-per-line": ["warn", { "allow": "single-child" }]
   }
 }
