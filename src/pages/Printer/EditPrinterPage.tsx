@@ -56,6 +56,11 @@ export function EditPrinterPage() {
         ip,
       }),
     });
+    if (respond.status === 200) {
+      alert('the printer is updated.');
+    } else {
+      alert('something wrong.');
+    }
   };
 
   // @todo add respond error handler,
@@ -64,10 +69,21 @@ export function EditPrinterPage() {
 
   if (printer === null) return <p>waiting...</p>;
   return (
-    <form onSubmit={submitHandler}>
-      <label htmlFor="name">
-        name:
+    <form
+      className="EditPrinterForm"
+      onSubmit={submitHandler}
+    >
+      <label
+        className="EditPrinterForm__label"
+        htmlFor="name"
+      >
+        <span
+          className="EditPrinterForm__title"
+        >
+          name:
+        </span>
         <input
+          className="EditPrinterForm__input"
           id="name"
           type="text"
           value={printer.name}
@@ -75,9 +91,17 @@ export function EditPrinterPage() {
           onChange={inputHandler}
         />
       </label>
-      <label htmlFor="ip">
-        IP:
+      <label
+        className="EditPrinterForm__label"
+        htmlFor="ip"
+      >
+        <span
+          className="EditPrinterForm__title"
+        >
+          ip:
+        </span>
         <input
+          className="EditPrinterForm__input"
           id="ip"
           type="text"
           value={printer.ip}
@@ -85,9 +109,53 @@ export function EditPrinterPage() {
           onChange={inputHandler}
         />
       </label>
-      <label htmlFor="model">
-        Model:
+      <label
+        className="EditPrinterForm__label"
+        htmlFor="area"
+      >
+        <span
+          className="EditPrinterForm__title"
+        >
+          area:
+        </span>
+        <input
+          className="EditPrinterForm__input"
+          id="area"
+          type="text"
+          value={printer.area}
+          name="area"
+          onChange={inputHandler}
+        />
+      </label>
+      <label
+        className="EditPrinterForm__label"
+        htmlFor="location"
+      >
+        <span
+          className="EditPrinterForm__title"
+        >
+          location:
+        </span>
+        <input
+          className="EditPrinterForm__input"
+          id="location"
+          type="text"
+          value={printer.location}
+          name="location"
+          onChange={inputHandler}
+        />
+      </label>
+      <label
+        className="EditPrinterForm__label"
+        htmlFor="model"
+      >
+        <span
+          className="EditPrinterForm__title"
+        >
+          model:
+        </span>
         <select
+          className="EditPrinterForm__select"
           id="model"
           name="model"
           onChange={selectHandler}
@@ -100,52 +168,12 @@ export function EditPrinterPage() {
         </select>
       </label>
 
-      <div>
-        <label htmlFor="yesRadio">
-          <input
-            id="yesRadio"
-            type="radio"
-            value={1}
-            checked={printer.isMultifunctional === true}
-            name="isMultifunctional"
-            disabled
-          />
-          Yes
-        </label>
-        <label htmlFor="noRadio">
-          <input
-            id="noRadio"
-            type="radio"
-            value={0}
-            checked={printer.isMultifunctional === false}
-            name="isMultifunctional"
-            disabled
-          />
-          No
-        </label>
-      </div>
-
-      <label htmlFor="area">
-        Area:
-        <input
-          id="area"
-          type="text"
-          value={printer.area}
-          name="area"
-          onChange={inputHandler}
-        />
-      </label>
-      <label htmlFor="location">
-        Locations:
-        <input
-          id="location"
-          type="text"
-          value={printer.location}
-          name="location"
-          onChange={inputHandler}
-        />
-      </label>
-      <button type="submit">Update</button>
+      <button
+        className="EditPrinterForm__button"
+        type="submit"
+      >
+        Update
+      </button>
     </form>
   );
 }
