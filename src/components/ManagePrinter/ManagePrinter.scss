@@ -1,0 +1,48 @@
+@import "../../sass/main";
+.ManagePrinter {
+  background-color: $dark-color-4;
+  color: $white-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5rem;
+  witdh: 70%;
+  &__title {
+    font-size: 3rem;
+    display: block;
+    width: 100%;
+    padding-bottom: .5rem;
+    border-bottom: .2rem solid $white-color;
+  }
+  &__info {
+    padding: 1rem 3rem;
+  font-size: 2rem;
+    text-align: left;
+  &--item {}
+  }
+  &__actions {
+    width: 100%;
+    text-align: left;
+    padding: 3rem 2rem;
+
+  }
+  &__button {
+    color: inherit;
+    font-size: 1.8rem;
+    border: none;
+    padding: 1rem;
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+    &--yellow {
+      background-color: $yellow-color;
+    }
+    &--green {
+      background-color: $dark-green-color;
+    }
+  }
+}
+
+
+
