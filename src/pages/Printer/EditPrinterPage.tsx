@@ -161,7 +161,7 @@ export function EditPrinterPage() {
           onChange={selectHandler}
         >
           {
-            models.map((model) => (model === printer.model
+            models.map((model) => (model === printer?.model
               ? <option selected value={model}>{model}</option>
               : <option value={model}>{model}</option>))
           }
