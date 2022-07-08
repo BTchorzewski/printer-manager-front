@@ -21,10 +21,12 @@ export type StoreRespond = {
   msg: 'Succeed';
   data: StoreItem[];
 } | {
-  msg: 'Fails';
+  msg: string;
+  data: null;
 }
 
 export interface BasicStoreItem {
+  storeId: string;
   installedAt: Date;
   name: string;
 }

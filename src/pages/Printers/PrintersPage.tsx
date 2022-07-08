@@ -37,9 +37,11 @@ export function PrintersPage() {
 
   return (
     <>
-      <PrinterTable printers={printers} />
+      {/* <PrinterTable printers={printers} /> */}
       {
-        showAddForm && <AddPrinterForm show={setShowAddForm} />
+        showAddForm
+          ? <AddPrinterForm show={setShowAddForm} />
+          : <PrinterTable printers={printers} />
       }
       <AddPrinter show={setShowAddForm} />
     </>

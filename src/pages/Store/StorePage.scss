@@ -1,0 +1,17 @@
+@import "../../sass/main";
+
+.StorePage {
+  background-color: $dark-color-3;
+  width: 90%;
+  height: 90%;
+  margin-top: 1.5rem;
+  color: $white-color;
+  &__title {
+    font-size: 3rem;
+    display: block;
+    width: 100%;
+    padding-bottom: .5rem;
+    border-bottom: .2rem solid $white-color;
+    text-transform: uppercase;
+  }
+}

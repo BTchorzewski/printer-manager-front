@@ -29,5 +29,6 @@ export type PrinterRespond = {
   msg: 'Succeed';
   data: Printer[] | StoreItem[];
 } | {
-  msg: 'Fails';
+  msg: string;
+  data: null;
 }

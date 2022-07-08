@@ -18,7 +18,8 @@ export type SupplyRespond = {
   msg: 'Succeed';
   data: Supply[];
 } | {
-  msg: 'Fails';
+  msg: string;
+  data: null;
 }
 
 export interface InstallSupplyRequest {
@@ -35,9 +36,20 @@ export interface SupplyAvailability {
   name: string;
   total: number;
   totalAvailable: number;
+  model?: PrinterModel;
 }
 
 export interface ListSupplies {
   id: string;
   name: string;
+  model?: PrinterModel;
 }
+
+const models = Array.from(Object.values(PrinterModel));
+export type Models = typeof models[number];
+
+export type SuppliesWithAvailability = {
+  model: PrinterModel;
+  supplies: SupplyAvailability[];
+};
+export type ListSuppliesWithAvailability = SuppliesWithAvailability[];
