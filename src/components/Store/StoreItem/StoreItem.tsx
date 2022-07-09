@@ -7,9 +7,9 @@ interface Props {
   supply: SupplyAvailability
 }
 
-export function StoreItem({supply}: Props) {
+export function StoreItem({ supply }: Props) {
   const [quantity, setQuantity] = useState(1);
-  const {updateStore, setUpdateStore} = useContext(StoreContext);
+  const { updateStore, setUpdateStore } = useContext(StoreContext);
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setQuantity(parseInt(e.target.value, 10));
   };
@@ -24,7 +24,7 @@ export function StoreItem({supply}: Props) {
         quantity,
       }),
     });
-    const {msg} = await respond.json();
+    const { msg } = await respond.json();
 
     if (respond.status === 200) {
       alert(msg);
