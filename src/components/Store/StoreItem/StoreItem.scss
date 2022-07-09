@@ -1,0 +1,30 @@
+
+// @todo ISSUE cant import main sass file.
+.StoreItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #9fc9d6;
+
+  &:not(:last-child) {
+    border-bottom: .1rem solid white;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    width: 17%;
+    margin-right: 2rem;
+  }
+
+  &__text {
+    width: 35%;
+  }
+
+  &__input {
+  }
+
+  &__button {
+    margin-left: .5rem;
+  }
+}

@@ -6,6 +6,7 @@
   height: 90%;
   margin-top: 1.5rem;
   color: $white-color;
+
   &__title {
     font-size: 3rem;
     display: block;
@@ -13,5 +14,14 @@
     padding-bottom: .5rem;
     border-bottom: .2rem solid $white-color;
     text-transform: uppercase;
+    margin: 0;
+  }
+}
+
+.Supply {
+  &__title {
+    background-color: #6d6f71;
+    margin: 0;
+    padding: 1.5rem;
   }
 }
