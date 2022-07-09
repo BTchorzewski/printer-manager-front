@@ -1,13 +1,13 @@
+@import "/src/sass/main";
 
-// @todo ISSUE cant import main sass file.
 .StoreItem {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #9fc9d6;
+  background-color: $dark-color-6;
 
   &:not(:last-child) {
-    border-bottom: .1rem solid white;
+    border-bottom: .1rem solid $white-color;
   }
 
   &__info {

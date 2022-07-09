@@ -1,7 +1,7 @@
-import React, {ChangeEvent, useContext, useState} from 'react';
+import React, { ChangeEvent, useContext, useState } from 'react';
 import './StoreItem.scss';
-import {SupplyAvailability} from '../../../types';
-import {StoreContext} from '../../../context/store-context';
+import { SupplyAvailability } from '../../../types';
+import { StoreContext } from '../../../context/store-context';
 
 interface Props {
   supply: SupplyAvailability
