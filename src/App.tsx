@@ -13,10 +13,12 @@ import { SuppliesPage } from './pages/Supplies/SuppliesPage';
 import { NotFoundPage } from './pages/error/NotFoundPage';
 import { PrintersContext } from './context/printers-context';
 import { StoreContext } from './context/store-context';
+import { PrinterContext } from './context/printer-context';
 
 function App() {
   const [updatePrinters, setUpdatePrinters] = useState(false);
   const [updateStore, setUpdateStore] = useState(false);
+  const [updatePrinter, setUpdatePrinter] = useState(false);
 
   return (
     <div className="App">
@@ -24,25 +26,28 @@ function App() {
       <StoreContext.Provider value={{ updateStore, setUpdateStore }}>
         {/* eslint-disable-next-line react/jsx-no-constructed-context-values */}
         <PrintersContext.Provider value={{ updatePrinters, setUpdatePrinters }}>
-          <BrowserRouter>
-            <Routes>
-              {/* eslint-disable-next-line react/no-children-prop */}
-              <Route path="/" element={<Layout children={<Dashboard />} />} />
-              {/* @todo add pagination to printers page */}
-              <Route path="printers" element={<Layout><PrintersPage /></Layout>} />
-              <Route path="printer">
-                <Route path="manage/:printerId" element={<Layout><ManagePrinterPage /></Layout>} />
-                <Route path="edit/:printerId" element={<Layout><EditPrinterPage /></Layout>} />
-              </Route>
-              <Route path="store" element={<Layout><StorePage /></Layout>}>
-                <Route path="manage/:storeId" element={<Layout><StorePage /></Layout>} />
-              </Route>
-              <Route path="supplies" element={<Layout><SuppliesPage /></Layout>}>
-                <Route path="manage/:supplyId" element={<Layout><SuppliesPage /></Layout>} />
-              </Route>
-              <Route path="*" element={<Layout><NotFoundPage /></Layout>} />
-            </Routes>
-          </BrowserRouter>
+          {/* eslint-disable-next-line react/jsx-no-constructed-context-values */}
+          <PrinterContext.Provider value={{ updatePrinter, setUpdatePrinter }}>
+            <BrowserRouter>
+              <Routes>
+                {/* eslint-disable-next-line react/no-children-prop */}
+                <Route path="/" element={<Layout children={<Dashboard />} />} />
+                {/* @todo add pagination to printers page */}
+                <Route path="printers" element={<Layout><PrintersPage /></Layout>} />
+                <Route path="printer">
+                  <Route path="manage/:printerId" element={<Layout><ManagePrinterPage /></Layout>} />
+                  <Route path="edit/:printerId" element={<Layout><EditPrinterPage /></Layout>} />
+                </Route>
+                <Route path="store" element={<Layout><StorePage /></Layout>}>
+                  <Route path="manage/:storeId" element={<Layout><StorePage /></Layout>} />
+                </Route>
+                <Route path="supplies" element={<Layout><SuppliesPage /></Layout>}>
+                  <Route path="manage/:supplyId" element={<Layout><SuppliesPage /></Layout>} />
+                </Route>
+                <Route path="*" element={<Layout><NotFoundPage /></Layout>} />
+              </Routes>
+            </BrowserRouter>
+          </PrinterContext.Provider>
         </PrintersContext.Provider>
       </StoreContext.Provider>
     </div>
