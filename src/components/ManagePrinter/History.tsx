@@ -3,11 +3,14 @@ import './History.scss';
 import { FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { BasicStoreItem } from '../../types/index';
+import { HistoryRecord } from './HistoryRecord';
 
 type Show = (prev: (el:boolean)=>boolean) => void
 interface Props {
   history: BasicStoreItem[];
   show: Show;
+  // eslint-disable-next-line no-undef,react/no-unused-prop-types,react/require-default-props
+  children?: React.ReactNode;
 }
 
 export function History({ history, show }: Props) {
@@ -21,12 +24,14 @@ export function History({ history, show }: Props) {
       {
         history.length > 0
           ? history.map((supply) => (
-            <div className="History__element">
-              <p key={supply.storeId}>{supply.name}</p>
-              <Link to={`/store/manage/${supply.storeId}`}>More info</Link>
-            </div>
+            // eslint-disable-next-line max-len
+            <HistoryRecord
+              storeId={supply.storeId}
+              name={supply.name}
+              installationDate={supply.installedAt}
+            />
           ))
-          : <p>empty</p>
+          : <p>no history</p>
       }
     </div>
   );
