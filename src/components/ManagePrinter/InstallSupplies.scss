@@ -25,6 +25,7 @@
     height: 5%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 2rem;
     box-sizing: border-box;
     &:nth-child(even) {
@@ -45,13 +46,11 @@
     margin-right: 3rem;
     text-align: left;
   }
-  &__button {
-    font-size: 1.4rem;
-    &--active {
-      background-color: $dark-green-color;
-    }
-    &--disable {
-      background-color: $red-color;
-    }
+  &__order {
+    background-color: $red-color;
+    text-align: center;
+  height: 2rem;
+    color: inherit;
+    text-decoration: none;
   }
 }

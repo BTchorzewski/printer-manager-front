@@ -54,7 +54,8 @@ export function ManagePrinter({ printer, supplies }: Props) {
       showHistory && <History history={printer.supplies} show={setShowHistory} />
       }
       {
-        showSupplies && <InstallSupplies supplies={supplies} show={setShowSupplies} />
+        // eslint-disable-next-line max-len
+        showSupplies && <InstallSupplies printerId={printer.id} supplies={supplies} show={setShowSupplies} />
       }
     </>
   );
