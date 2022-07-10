@@ -3,6 +3,7 @@ import './ManagePrinterPage.scss';
 import { useParams } from 'react-router-dom';
 import { PrinterWithHistory, SupplyAvailability } from '../../types/index';
 import { ManagePrinter } from '../../components/ManagePrinter/ManagePrinter';
+import { Spinner } from '../../components/Spinner/Spinner';
 
 export function ManagePrinterPage() {
   const { printerId } = useParams();
@@ -25,7 +26,7 @@ export function ManagePrinterPage() {
     })();
   }, []);
 
-  if (printer === null) return <p>loading</p>;
+  if (printer === null) return <Spinner />;
 
   return (
     <div className="ManagePrinterPage">
