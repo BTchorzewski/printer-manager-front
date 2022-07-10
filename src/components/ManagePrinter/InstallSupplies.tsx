@@ -2,6 +2,7 @@ import React from 'react';
 import './InstallSupplies.scss';
 import { FiX } from 'react-icons/fi';
 import { SupplyAvailability } from '../../types/index';
+import { Spinner } from '../Spinner/Spinner';
 
 type Show = (prev: (el:boolean)=>boolean) => void
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
 }
 
 export function InstallSupplies({ show, supplies }: Props) {
-  if (supplies === null) return <p>Spierdalaj jest pusto - chamie</p>;
+  if (supplies === null) return <Spinner />;
 
   return (
     <div className="InstallSupplies">
