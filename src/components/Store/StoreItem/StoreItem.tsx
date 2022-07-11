@@ -35,8 +35,16 @@ export function StoreItem({ supply }: Props) {
     }
   };
 
+  // eslint-disable-next-line consistent-return
+  const markLacks = (numberOfItems: number): string => {
+    if (numberOfItems === 0) return ' StoreItem StoreItem--shortage';
+    if (numberOfItems < 3) return ' StoreItem StoreItem--danger';
+    if (numberOfItems < 8) return ' StoreItem StoreItem--warn';
+    return 'StoreItem';
+  };
+
   return (
-    <div key={supply.id} className="StoreItem">
+    <div key={supply.id} className={markLacks(supply.totalAvailable)}>
       <div className="StoreItem__info">
         <p className="StoreItem__text">{supply.name}</p>
         <p className="StoreItem__text">

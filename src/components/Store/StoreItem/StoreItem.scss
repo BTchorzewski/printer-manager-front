@@ -10,6 +10,17 @@
     border-bottom: .1rem solid $white-color;
   }
 
+  &--warn {
+    background-color: $yellow-color;
+    color: $black-color;
+  }
+  &--danger {
+    background-color: $orange-color;
+  }
+  &--shortage {
+    background-color: $red-color;
+  }
+
   &__info {
     display: flex;
     align-items: center;
