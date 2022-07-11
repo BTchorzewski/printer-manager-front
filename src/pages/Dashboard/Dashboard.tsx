@@ -1,4 +1,5 @@
 import React from 'react';
+import './Dasboard.scss';
 import { NumberOfPrinters } from '../../components/Dashboard/NumberOfPrinters/NumberOfPrinters';
 
 export function Dashboard() {
