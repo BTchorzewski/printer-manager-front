@@ -10,8 +10,14 @@ interface Props {
 export function HistoryRecord({ installationDate, storeId, name }: Props) {
   return (
     <div key={storeId} className="History__element">
-      <p>{name} installed at <span>{moment(installationDate).format('DD-MM-YYYY HH:mm')}</span></p>
-      {/*@todo create add page with information*/}
+      <p>
+        {name}
+        {' '}
+        installed at
+        {' '}
+        <span>{moment(installationDate).format('DD-MM-YYYY HH:mm')}</span>
+      </p>
+      {/* @todo create add page with information */}
       <Link to={`/store/manage/${storeId}`}>More info</Link>
     </div>
   );
