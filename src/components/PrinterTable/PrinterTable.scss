@@ -1,4 +1,6 @@
-.Table {
+@import '/src/sass/main';
+
+.PrinterTable {
   table-layout: fixed;
   max-height: 100%;
   max-width: 70%;
@@ -7,6 +9,19 @@
   border: .5rem solid rgba(182, 182, 182, 0.09);
   border-radius: 3%;
   margin-top: 6rem;
+
+  &__title {
+    font-size: 3rem;
+    display: block;
+    width: 100%;
+    padding-bottom: .5rem;
+    border-bottom: .2rem solid $white-color;
+    text-transform: uppercase;
+    margin: 0;
+    color: $white-color;
+    background-color: $dark-color-3;
+  }
+
   &__row {
       margin-top: .5rem;
       background-color: rgba(255, 255, 255, 0.45);
@@ -26,7 +41,7 @@
     background-color: rgba(117, 117, 117, 0.93);
     &-item {
       padding: 2rem;
-      color: #ffffff
+      color: $white-color;
     }
   }
   &__body {
