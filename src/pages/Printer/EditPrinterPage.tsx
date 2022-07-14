@@ -2,14 +2,16 @@ import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import './EditPrinterPage.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Printer } from 'src/types';
+import { FiArrowLeft, FiX } from 'react-icons/fi';
 import { PrinterModel } from '../../utils/utils';
 
 export function EditPrinterPage() {
   const { printerId } = useParams();
   const [printer, setPrinter] = useState<Printer | null>(null);
+  const navigation = useNavigate();
   const models = Object.values(PrinterModel);
 
   useEffect(() => {
@@ -73,6 +75,12 @@ export function EditPrinterPage() {
       className="EditPrinterForm"
       onSubmit={submitHandler}
     >
+      <FiX
+        className="EditPrinterForm__icon"
+        onClick={(event) => {
+          navigation('/printers');
+        }}
+      />
       <label
         className="EditPrinterForm__label"
         htmlFor="name"

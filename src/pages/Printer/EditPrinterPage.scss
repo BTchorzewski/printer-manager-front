@@ -1,3 +1,4 @@
+@import "../../sass/main";
 .EditPrinterForm {
   position: absolute;
   max-width: 40%;
@@ -8,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: #78889b;
+  background-color: $dark-color-4;
   margin-top: 8rem;
   &__label {
     display: flex;
@@ -22,19 +23,26 @@
   &__title {
     width: 3.5rem;
     font-size: 2rem;
-    color: white;
+    color: $white-color;
     text-align:left;
     margin-right: 5rem;
   }
   &__input {
 
   }
+  &__icon {
+  color: $white-color;
+    font-size: 2.3rem;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+  }
   &__select {}
   &__button {
     margin-top: 2rem;
     font-size: 2rem;
-    color: white;
-    background-color: #9fc9d6;
+    color: $white-color;
+    background-color: $dark-color-6;
     outline: none;
     border: none;
     border-radius: .3rem;
@@ -42,11 +50,11 @@
     transition: all 100ms;
     &:hover {
       transform: translateY(-.2rem);
-      box-shadow: 8px 10px 13px -11px rgba(66, 68, 90, 1);
+      box-shadow: 8px 10px 13px -11px $dark-color-5;
     }
     &:active {
       transform: translateY(-.2rem);
-      box-shadow: 7px 1px 13px -11px rgba(66, 68, 90, 1);
+      box-shadow: 7px 1px 13px -11px $dark-color-5;
     }
   }
 }
