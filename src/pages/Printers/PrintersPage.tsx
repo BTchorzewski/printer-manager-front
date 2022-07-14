@@ -19,7 +19,6 @@ export function PrintersPage() {
         method: 'GET',
       });
       const parsedList = await res.json();
-      console.log(parsedList.data);
       setPrinters(parsedList.data);
     })();
   }, []);
@@ -45,7 +44,9 @@ export function PrintersPage() {
           )
           : <PrinterTable printers={printers} />
       }
-      <AddPrinter show={setShowAddForm} />
+      {
+        showAddForm ? null : <AddPrinter show={setShowAddForm} />
+      }
     </>
   );
 }

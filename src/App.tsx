@@ -14,6 +14,7 @@ import { NotFoundPage } from './pages/error/NotFoundPage';
 import { PrintersContext } from './context/printers-context';
 import { StoreContext } from './context/store-context';
 import { PrinterContext } from './context/printer-context';
+import { StoreItemHistory } from './components/StoreItemHistory/StoreItemHistory';
 
 function App() {
   const [updatePrinters, setUpdatePrinters] = useState(false);
@@ -38,12 +39,9 @@ function App() {
                   <Route path="manage/:printerId" element={<Layout><ManagePrinterPage /></Layout>} />
                   <Route path="edit/:printerId" element={<Layout><EditPrinterPage /></Layout>} />
                 </Route>
-                <Route path="store" element={<Layout><StorePage /></Layout>}>
-                  <Route path="manage/:storeId" element={<Layout><StorePage /></Layout>} />
-                </Route>
-                <Route path="supplies" element={<Layout><SuppliesPage /></Layout>}>
-                  <Route path="manage/:supplyId" element={<Layout><SuppliesPage /></Layout>} />
-                </Route>
+                <Route path="store" element={<Layout><StorePage /></Layout>} />
+                <Route path="store-item/:storeId" element={<Layout><StoreItemHistory /></Layout>} />
+                <Route path="supplies" element={<Layout><SuppliesPage /></Layout>} />
                 <Route path="*" element={<Layout><NotFoundPage /></Layout>} />
               </Routes>
             </BrowserRouter>

@@ -18,7 +18,7 @@ export function HistoryRecord({ installationDate, storeId, name }: Props) {
         <span>{moment(installationDate).format('DD-MM-YYYY HH:mm')}</span>
       </p>
       {/* @todo create add page with information */}
-      <Link to={`/store/manage/${storeId}`}>More info</Link>
+      <Link to={`/store-item/${storeId}`}>More info</Link>
     </div>
   );
 }
