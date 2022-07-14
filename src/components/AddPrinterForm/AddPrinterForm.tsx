@@ -2,8 +2,9 @@ import React, {
   ChangeEvent, FormEvent, useContext, useState,
 } from 'react';
 import './AddPrinterForm.scss';
-import { AddPrinterRequest, PrinterModel } from '../../types/index';
+import { FiX } from 'react-icons/fi';
 import { PrintersContext } from '../../context/printers-context';
+import { AddPrinterRequest, PrinterModel } from '../../types/index';
 
 const models = Object.values(PrinterModel);
 
@@ -61,17 +62,30 @@ export function AddPrinterForm({ show }: Props) {
         ip,
       }),
     });
-
+    const { msg } = await respond.json();
     if (respond.status === 200) {
       setUpdatePrinters(!updatePrinters);
       show((prev) => !prev);
+      alert(msg);
+    } else {
+      alert(msg);
     }
   };
+
+  function closeForm() {
+    show((prev) => !prev);
+  }
 
   return (
     <>
       <div className="BlurBox" />
       <form className="AddPrinterForm" onSubmit={submitHandler}>
+        <FiX
+          className="AddPrinterForm__icon"
+          onClick={(event) => {
+            show((prev) => !prev);
+          }}
+        />
         <label
           className="AddPrinterForm__label"
           htmlFor="name"
