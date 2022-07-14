@@ -1,0 +1,16 @@
+@import "../../sass/main";
+.Container {
+  background-color: $dark-color-4;
+  height: 70%;
+  width: 30%;
+  margin-top: 4rem;
+  box-sizing: border-box;
+  overflow: no-display;
+  position: relative;
+  &__title {
+    @include second-title;
+  }
+  &__icon {
+    @include iconX
+  }
+}

@@ -11,15 +11,7 @@
   margin-top: 6rem;
 
   &__title {
-    font-size: 3rem;
-    display: block;
-    width: 100%;
-    padding-bottom: .5rem;
-    border-bottom: .2rem solid $white-color;
-    text-transform: uppercase;
-    margin: 0;
-    color: $white-color;
-    background-color: $dark-color-3;
+    @include second-title;
   }
 
   &__row {

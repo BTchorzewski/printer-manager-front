@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import './ManagePrinter.scss';
 import { FiX } from 'react-icons/fi';
@@ -14,25 +14,42 @@ interface Props {
 export function ManagePrinter({ printer, supplies }: Props) {
   const [showHistory, setShowHistory] = useState(false);
   const [showSupplies, setShowSupplies] = useState(false);
+  const navigation = useNavigate();
   return (
     <>
       <div className="ManagePrinter">
+        <FiX
+          className="ManagePrinter__icon"
+          onClick={(event) => {
+            navigation('/printers');
+          }}
+        />
         <h2 className="ManagePrinter__title">Summary</h2>
         <div className="ManagePrinter__info">
           <p className="ManagePrinter__info-item">
-            name: {printer.name}
+            name:
+            {' '}
+            {printer.name}
           </p>
           <p className="ManagePrinter__info-item">
-            ip: {printer.ip}
+            ip:
+            {' '}
+            {printer.ip}
           </p>
           <p className="ManagePrinter__info-item">
-            area: {printer.area}
+            area:
+            {' '}
+            {printer.area}
           </p>
           <p className="ManagePrinter__info-item">
-            location: {printer.location}
+            location:
+            {' '}
+            {printer.location}
           </p>
           <p className="ManagePrinter__info-item">
-            model: {printer.model}
+            model:
+            {' '}
+            {printer.model}
           </p>
         </div>
         <div className="ManagePrinter__actions">

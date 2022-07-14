@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './ManagePrinterPage.scss';
 import { useParams } from 'react-router-dom';
+import { FiX } from 'react-icons/fi';
 import { PrinterWithHistory, SupplyAvailability } from '../../types/index';
 import { ManagePrinter } from '../../components/ManagePrinter/ManagePrinter';
 import { Spinner } from '../../components/Spinner/Spinner';
@@ -11,7 +12,6 @@ export function ManagePrinterPage() {
   const [printer, setPrinter] = useState<PrinterWithHistory | null>(null);
   const [supplies, setSupplies] = useState< SupplyAvailability[] | null>(null);
   const { updatePrinter } = useContext(PrinterContext);
-
   useEffect(() => {
     (async () => {
       const respond = await fetch(`http://localhost:3001/api/printers/${printerId}/history`);
@@ -48,12 +48,10 @@ export function ManagePrinterPage() {
 
   return (
     <div className="ManagePrinterPage">
-
       <ManagePrinter
         printer={printer}
         supplies={supplies}
       />
-
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Printer } from 'src/types';
 import { FiX } from 'react-icons/fi';
 import { PrinterModel } from '../../utils/utils';
+import { Container } from '../../components/Container/Container';
 
 export function EditPrinterPage() {
   const { printerId } = useParams();
@@ -72,117 +73,113 @@ export function EditPrinterPage() {
 
   if (printer === null) return <p>waiting...</p>;
   return (
-    <form
-      className="EditPrinterForm"
-      onSubmit={submitHandler}
-    >
-      <FiX
-        className="EditPrinterForm__icon"
-        onClick={(event) => {
-          navigation('/printers');
-        }}
-      />
-      <label
-        className="EditPrinterForm__label"
-        htmlFor="name"
+    <Container title="update" action={() => { navigation('/printers'); }}>
+      <form
+        className="EditPrinterForm"
+        onSubmit={submitHandler}
       >
-        <span
-          className="EditPrinterForm__title"
+        <label
+          className="EditPrinterForm__label"
+          htmlFor="name"
         >
-          name:
-        </span>
-        <input
-          className="EditPrinterForm__input"
-          id="name"
-          type="text"
-          value={printer.name}
-          name="name"
-          onChange={inputHandler}
-        />
-      </label>
-      <label
-        className="EditPrinterForm__label"
-        htmlFor="ip"
-      >
-        <span
-          className="EditPrinterForm__title"
+          <span
+            className="EditPrinterForm__name"
+          >
+            name:
+          </span>
+          <input
+            className="EditPrinterForm__input"
+            id="name"
+            type="text"
+            value={printer.name}
+            name="name"
+            onChange={inputHandler}
+          />
+        </label>
+        <label
+          className="EditPrinterForm__label"
+          htmlFor="ip"
         >
-          ip:
-        </span>
-        <input
-          className="EditPrinterForm__input"
-          id="ip"
-          type="text"
-          value={printer.ip}
-          name="ip"
-          onChange={inputHandler}
-        />
-      </label>
-      <label
-        className="EditPrinterForm__label"
-        htmlFor="area"
-      >
-        <span
-          className="EditPrinterForm__title"
+          <span
+            className="EditPrinterForm__name"
+          >
+            ip:
+          </span>
+          <input
+            className="EditPrinterForm__input"
+            id="ip"
+            type="text"
+            value={printer.ip}
+            name="ip"
+            onChange={inputHandler}
+          />
+        </label>
+        <label
+          className="EditPrinterForm__label"
+          htmlFor="area"
         >
-          area:
-        </span>
-        <input
-          className="EditPrinterForm__input"
-          id="area"
-          type="text"
-          value={printer.area}
-          name="area"
-          onChange={inputHandler}
-        />
-      </label>
-      <label
-        className="EditPrinterForm__label"
-        htmlFor="location"
-      >
-        <span
-          className="EditPrinterForm__title"
+          <span
+            className="EditPrinterForm__name"
+          >
+            area:
+          </span>
+          <input
+            className="EditPrinterForm__input"
+            id="area"
+            type="text"
+            value={printer.area}
+            name="area"
+            onChange={inputHandler}
+          />
+        </label>
+        <label
+          className="EditPrinterForm__label"
+          htmlFor="location"
         >
-          location:
-        </span>
-        <input
-          className="EditPrinterForm__input"
-          id="location"
-          type="text"
-          value={printer.location}
-          name="location"
-          onChange={inputHandler}
-        />
-      </label>
-      <label
-        className="EditPrinterForm__label"
-        htmlFor="model"
-      >
-        <span
-          className="EditPrinterForm__title"
+          <span
+            className="EditPrinterForm__name"
+          >
+            location:
+          </span>
+          <input
+            className="EditPrinterForm__input"
+            id="location"
+            type="text"
+            value={printer.location}
+            name="location"
+            onChange={inputHandler}
+          />
+        </label>
+        <label
+          className="EditPrinterForm__label"
+          htmlFor="model"
         >
-          model:
-        </span>
-        <select
-          className="EditPrinterForm__select"
-          id="model"
-          name="model"
-          onChange={selectHandler}
-        >
-          {
-            models.map((model) => (model === printer?.model
-              ? <option selected value={model}>{model}</option>
-              : <option value={model}>{model}</option>))
-          }
-        </select>
-      </label>
+          <span
+            className="EditPrinterForm__name"
+          >
+            model:
+          </span>
+          <select
+            className="EditPrinterForm__select"
+            id="model"
+            name="model"
+            onChange={selectHandler}
+          >
+            {
+                models.map((model) => (model === printer?.model
+                  ? <option selected value={model}>{model}</option>
+                  : <option value={model}>{model}</option>))
+              }
+          </select>
+        </label>
 
-      <button
-        className="EditPrinterForm__button"
-        type="submit"
-      >
-        Update
-      </button>
-    </form>
+        <button
+          className="EditPrinterForm__button"
+          type="submit"
+        >
+          Update
+        </button>
+      </form>
+    </Container>
   );
 }

@@ -7,6 +7,7 @@ import { PrintersContext } from '../../context/printers-context';
 import { BoxCenter } from '../../layout/BoxCenter';
 import { AddPrinter } from '../../components/Button/AddPrinter/AddPrinter';
 import { AddPrinterForm } from '../../components/AddPrinterForm/AddPrinterForm';
+import { Container } from '../../components/Container/Container';
 
 export function PrintersPage() {
   const [printers, setPrinters] = useState<null | Printer[]>(null);
@@ -37,10 +38,11 @@ export function PrintersPage() {
 
   return (
     <>
-      {/* <PrinterTable printers={printers} /> */}
       {
         showAddForm
-          ? <AddPrinterForm show={setShowAddForm} />
+          ? (
+            <AddPrinterForm show={setShowAddForm} />
+          )
           : <PrinterTable printers={printers} />
       }
       <AddPrinter show={setShowAddForm} />

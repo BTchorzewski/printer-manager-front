@@ -8,24 +8,23 @@
   align-items: flex-start;
   margin-top: 5rem;
   witdh: 70%;
+  position: relative;
   &__title {
-    font-size: 3rem;
-    display: block;
-    width: 100%;
-    padding-bottom: .5rem;
-    border-bottom: .2rem solid $white-color;
+ @include second-title;
   }
   &__info {
     padding: 1rem 3rem;
-  font-size: 2rem;
+    font-size: 2rem;
     text-align: left;
   &--item {}
+  }
+  &__icon {
+    @include iconX;
   }
   &__actions {
     width: 100%;
     text-align: left;
     padding: 3rem 2rem;
-
   }
   &__button {
     color: inherit;

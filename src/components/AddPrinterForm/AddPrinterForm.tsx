@@ -5,6 +5,7 @@ import './AddPrinterForm.scss';
 import { FiX } from 'react-icons/fi';
 import { PrintersContext } from '../../context/printers-context';
 import { AddPrinterRequest, PrinterModel } from '../../types/index';
+import { Container } from '../Container/Container';
 
 const models = Object.values(PrinterModel);
 
@@ -77,8 +78,7 @@ export function AddPrinterForm({ show }: Props) {
   }
 
   return (
-    <>
-      <div className="BlurBox" />
+    <Container title="add printer" action={() => { show((prev) => !prev); }}>
       <form className="AddPrinterForm" onSubmit={submitHandler}>
         <FiX
           className="AddPrinterForm__icon"
@@ -152,10 +152,10 @@ export function AddPrinterForm({ show }: Props) {
             onChange={selectHandler}
           >
             {
-              models.map((model) => (model === printer.model
-                ? <option selected value={model}>{model}</option>
-                : <option value={model}>{model}</option>))
-            }
+                models.map((model) => (model === printer.model
+                  ? <option selected value={model}>{model}</option>
+                  : <option value={model}>{model}</option>))
+              }
           </select>
         </label>
         <button
@@ -165,7 +165,6 @@ export function AddPrinterForm({ show }: Props) {
           Add printer
         </button>
       </form>
-      {/*  @todo add closing icon. */}
-    </>
+    </Container>
   );
 }
