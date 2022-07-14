@@ -80,12 +80,6 @@ export function AddPrinterForm({ show }: Props) {
   return (
     <Container title="add printer" action={() => { show((prev) => !prev); }}>
       <form className="AddPrinterForm" onSubmit={submitHandler}>
-        <FiX
-          className="AddPrinterForm__icon"
-          onClick={(event) => {
-            show((prev) => !prev);
-          }}
-        />
         <label
           className="AddPrinterForm__label"
           htmlFor="name"

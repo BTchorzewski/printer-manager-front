@@ -7,9 +7,8 @@
   //background-color: #6d6f71;
 }
 .AddPrinterForm {
-  position: absolute;
-  max-width: 40%;
   max-height: 40%;
+
   padding: 4rem;
   z-index: 60;
   display: flex;
@@ -28,7 +27,7 @@
     }
   }
   &__name {
-    width: 3.5rem;
+    width: 4.5rem;
     font-size: 2rem;
     color: $white-color;
     text-align:left;
