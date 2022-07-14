@@ -5,7 +5,7 @@ import './EditPrinterPage.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Printer } from 'src/types';
-import { FiArrowLeft, FiX } from 'react-icons/fi';
+import { FiX } from 'react-icons/fi';
 import { PrinterModel } from '../../utils/utils';
 
 export function EditPrinterPage() {
@@ -58,10 +58,11 @@ export function EditPrinterPage() {
         ip,
       }),
     });
+    const { msg } = await respond.json();
     if (respond.status === 200) {
-      alert('the printer is updated.');
+      alert(msg);
     } else {
-      alert('something wrong.');
+      alert(msg);
     }
   };
 
