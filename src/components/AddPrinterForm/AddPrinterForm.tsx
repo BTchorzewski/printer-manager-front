@@ -2,13 +2,11 @@ import React, {
   ChangeEvent, FormEvent, useContext, useState,
 } from 'react';
 import './AddPrinterForm.scss';
-import { FiX } from 'react-icons/fi';
 import { PrintersContext } from '../../context/printers-context';
 import { AddPrinterRequest, PrinterModel } from '../../types/index';
 import { Container } from '../Container/Container';
 
 const models = Object.values(PrinterModel);
-
 type Show = (cb: (prev: boolean) => any) => unknown;
 interface Props {
   show: Show
@@ -23,7 +21,7 @@ export function AddPrinterForm({ show }: Props) {
     area: '',
     location: '',
   });
-
+  const [isInvalid, setInvalid] = useState(true);
   const { setUpdatePrinters, updatePrinters } = useContext(PrintersContext);
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -119,6 +117,8 @@ export function AddPrinterForm({ show }: Props) {
             type="text"
             id="area"
             name="area"
+            minLength={3}
+            maxLength={150}
           />
         </label>
         <label
@@ -132,6 +132,8 @@ export function AddPrinterForm({ show }: Props) {
             type="text"
             id="location"
             name="location"
+            minLength={3}
+            maxLength={500}
           />
         </label>
         <label
@@ -155,6 +157,7 @@ export function AddPrinterForm({ show }: Props) {
         <button
           className="AddPrinterForm__button"
           type="submit"
+          disabled={isInvalid}
         >
           Add printer
         </button>
