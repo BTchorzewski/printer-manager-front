@@ -31,18 +31,10 @@ export function Sidebar() {
           </li>
           <li className="Sidebar__item">
             <Link className="Sidebar__link" to="/store">
-              <FiTruck
-                className="Sidebar__icon"
-              />
-              Store
-            </Link>
-          </li>
-          <li className="Sidebar__item">
-            <Link className="Sidebar__link" to="/supplies">
               <FiBox
                 className="Sidebar__icon"
               />
-              Supplies
+              Store
             </Link>
           </li>
         </ul>
