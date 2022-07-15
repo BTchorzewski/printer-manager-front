@@ -26,6 +26,7 @@ export function History({ history, show }: Props) {
           ? history.map((supply) => (
             // eslint-disable-next-line max-len
             <HistoryRecord
+              key={supply.storeId}
               storeId={supply.storeId}
               name={supply.name}
               installationDate={supply.installedAt}

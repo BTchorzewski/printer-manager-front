@@ -1,0 +1,20 @@
+@import "../../sass/main";
+.HistoryRecord {
+  display: flex;
+  align-items: baseline;
+  &__text {
+    margin-right: .5rem;
+  }
+  &__link {
+    &:link, &:visited {
+      text-decoration: none;
+      color: $white-color;
+    }
+    &:hover {
+      color: $orange-color;
+    }
+    &:active {
+      color: $yellow-color;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './HistoryRecord.scss';
 import React from 'react';
 import moment from 'moment';
 
@@ -9,16 +10,15 @@ interface Props {
 }
 export function HistoryRecord({ installationDate, storeId, name }: Props) {
   return (
-    <div key={storeId} className="History__element">
-      <p>
+    <div key={storeId} className="HistoryRecord">
+      <p className="HistoryRecord__text">
         {name}
         {' '}
         installed at
         {' '}
-        <span>{moment(installationDate).format('DD-MM-YYYY HH:mm')}</span>
+        <span className="HistoryRecord__data">{moment(installationDate).format('DD-MM-YYYY HH:mm')}</span>
       </p>
-      {/* @todo create add page with information */}
-      <Link to={`/store-item/${storeId}`}>More info</Link>
+      <Link className="HistoryRecord__link" to={`/store-item/${storeId}`}>More info</Link>
     </div>
   );
 }
