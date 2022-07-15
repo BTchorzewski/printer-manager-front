@@ -4,10 +4,9 @@ import './PrintersPage.scss';
 import { Printer } from 'src/types';
 import { PrinterTable } from '../../components/PrinterTable/PrinterTable';
 import { PrintersContext } from '../../context/printers-context';
-import { BoxCenter } from '../../layout/BoxCenter';
 import { AddPrinter } from '../../components/Button/AddPrinter/AddPrinter';
 import { AddPrinterForm } from '../../components/AddPrinterForm/AddPrinterForm';
-import { Container } from '../../components/Container/Container';
+import { Spinner } from '../../components/Spinner/Spinner';
 
 export function PrintersPage() {
   const [printers, setPrinters] = useState<null | Printer[]>(null);
@@ -33,7 +32,7 @@ export function PrintersPage() {
     })();
   }, [updatePrinters]);
 
-  if (printers === null) return <h1>loading...</h1>;
+  if (printers === null) return <Spinner />;
 
   return (
     <>

@@ -21,7 +21,6 @@ export function AddPrinterForm({ show }: Props) {
     area: '',
     location: '',
   });
-  const [isInvalid, setInvalid] = useState(true);
   const { setUpdatePrinters, updatePrinters } = useContext(PrintersContext);
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -157,7 +156,6 @@ export function AddPrinterForm({ show }: Props) {
         <button
           className="AddPrinterForm__button"
           type="submit"
-          disabled={isInvalid}
         >
           Add printer
         </button>
