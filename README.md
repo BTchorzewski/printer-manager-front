@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# The printer manager - frontend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+The application is designed to help employees to deal with the company's printing service and maintain the local
+warehouse. **This is a client side of the app.**
 
-In the project directory, you can run:
+# Version 1.0.0
 
-### `npm start`
+## user stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [x] As a user, I can see a list of printers on my contract.
+* [x] As a user, I can add a new printer.
+* [x] As a user, I can update printer information.
+* [x] As a user, I can remove a device.
+* [x] As a user, I can see the inventory.
+* [x] As a user, I can add new supplies to the stock.
+* [x] As a user, I can add material to the printer.
+* [x] As a user, I can see the history of the listed materials in the printer.
+* [x] As a user, I want to see the number of printers on contract.
+* [x] As a user, I want to receive a message about shortages in the warehouse.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Frontend Tech
 
-### `npm test`
+The printer manager uses a number of open source projects to work properly:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React.js] - React is a JavaScript library for creating user interfaces.
+- [React-Router] - 
+- [SASS] - Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
 
-### `npm run build`
+## Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![App Screenshot](https://images2.imgbox.com/54/01/LCwaXuTp_o.png)
+![App Screenshot](https://images2.imgbox.com/2c/b3/kcQbuvZs_o.png)
+![App Screenshot](https://images2.imgbox.com/06/fa/ZDX9r5R6_o.png)
+![App Screenshot](https://images2.imgbox.com/c0/70/UDUDAfQ6_o.png)
+![App Screenshot](https://images2.imgbox.com/4f/ad/xzDX91fD_o.png)
+![App Screenshot](https://images2.imgbox.com/ed/68/gBOG9YzW_o.png)
+![App Screenshot](https://images2.imgbox.com/f8/b6/7Hhu1hGx_o.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Warning! Remember to put the frontend and the backend in the same directory.
 
-### `npm run eject`
+1. Install the dependencies and devDependencies and start the server.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+cd printer-manager-frontend
+npm i
+npm run start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Download and install the api which is available
+   at [Printer-manager-back](https://github.com/BTchorzewski/printer-manager-back).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Live demo: coming soon.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Features that will be added as soon as possible.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [ ] Validation.
+* [ ] Authentication JWT.
+* [ ] PDF reports.
+* [ ] New design with RWD.
+* [ ] Roles.
